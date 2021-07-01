@@ -6,4 +6,5 @@ toml==0.10.2
 typing-extensions==3.10.0.0
 gunicorn==20.1.0
 Flask==1.0.2
-opencv-python
+opencv-contrib-python==4.5.2.54
+tensorflow-cpu==2.5.0
