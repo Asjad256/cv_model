@@ -22,7 +22,7 @@ from tensorflow import keras
 #from keras.preprocessing import img_to_array
 
 def load_model():
-    path = os.getcwd() + '/assets/assets'
+    path = os.getcwd() + 'FlaskTest/assets/assets'
     loaded_model = tf.keras.models.load_model(path)
 
     return loaded_model
