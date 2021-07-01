@@ -10,6 +10,7 @@ from werkzeug.utils import secure_filename
 import numpy as np
 import os
 import cv2
+from PIL import Image
 
 print(os.getcwd())
 
@@ -21,7 +22,8 @@ from tensorflow import keras
 #from keras.preprocessing import img_to_array
 
 def load_model():
-    loaded_model = tf.keras.models.load_model(r'./assets/assets')
+    path = os.getcwd() + '/assets/assets'
+    loaded_model = tf.keras.models.load_model(path)
 
     return loaded_model
 
@@ -56,13 +58,14 @@ def submit_and_predict():
     if imagefile.filename == '':
         flash('No image selected for uploading')
         return redirect(request.url)
-    image_path = os.getcwd() + r'/images_Flask/' + imagefile.filename
+    # image_path = os.getcwd() + r'/images_Flask/' + imagefile.filename
     if allowed_file(imagefile.filename):
-        imagefile.save(image_path)
-
-        image = cv2.imread(image_path)
+        #imagefile.save(image_path)
+        
+        img = Image.open(imagefile)
+        image = np.array(img)
         resized_image = cv2.resize(image, (32, 32), interpolation=cv2.INTER_AREA)
-        print(resized_image.shape)
+        # print(resized_image.shape)
         labels = ['Airplane', 'Automobile', 'Bird', 'Cat', 'Deer', 'Dog', 'Frog', 'Horse', 'Ship', 'Truck']
         resized_image = resized_image.reshape(-1, 32, 32, 3)
 
