@@ -56,7 +56,7 @@ def submit_and_predict():
     if imagefile.filename == '':
         flash('No image selected for uploading')
         return redirect(request.url)
-    image_path = os.getcwd() + '/images_Flask/' + imagefile.filename
+    image_path = os.getcwd() + r'/images_Flask/' + imagefile.filename
     if allowed_file(imagefile.filename):
         imagefile.save(image_path)
 
@@ -75,7 +75,7 @@ def submit_and_predict():
 
         return render_template("index2.html", prediction=class_image)
     else:
-         flash('Allowed image types are - png, jpg, jpeg, gif. jfif')
+         flash('Allowed image types are - png, jpg, jpeg, gif, jfif')
          return redirect(request.url)
 
     
