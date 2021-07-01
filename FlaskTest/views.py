@@ -56,7 +56,7 @@ def submit_and_predict():
     if imagefile.filename == '':
         flash('No image selected for uploading')
         return redirect(request.url)
-    image_path = './images_Flask/' + imagefile.filename
+    image_path = os.getcwd() + '/images_Flask/' + imagefile.filename
     if allowed_file(imagefile.filename):
         imagefile.save(image_path)
 
