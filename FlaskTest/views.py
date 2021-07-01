@@ -13,7 +13,7 @@ import cv2
 
 print(os.getcwd())
 
-os.chdir(r".\FlaskTest")
+# os.chdir(r"./FlaskTest")
 # print(os.getcwd())
 
 import tensorflow as tf
