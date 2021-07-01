@@ -22,15 +22,15 @@ from tensorflow import keras
 #from keras.preprocessing import img_to_array
 
 def load_model():
-    path = os.getcwd() + 'FlaskTest/assets/assets'
+    path = os.getcwd() + '/FlaskTest/assets/assets'
     loaded_model = tf.keras.models.load_model(path)
 
     return loaded_model
 
-UPLOAD_FOLDER = './images_Flask/'
+#UPLOAD_FOLDER = './images_Flask/'
  
 app.secret_key = "secret key"
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+#app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
  
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'jfif'])
